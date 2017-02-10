@@ -8,9 +8,10 @@ class UserList extends Component{
 	componentWillMount(){
 		this.props.fetchUsers();
 	}
+
 	renderUser(user){
 	 return(
-   	<div className='card card-block'>
+   	<div className='card card-block' key={user.name}>
    		<h4 className='card-title'>{user.name}</h4>
    		<p className='card-text'>Cheese Co.</p>
    		<a className='btn btn-primary'>Email</a>
@@ -20,9 +21,8 @@ class UserList extends Component{
 	}
 	render(){
 		return(
-		    <div>
-		    {this.props.users.map(this.renderUser)}
-		    <h1>Fly form user list </h1>
+		    <div className='user-list'>
+		     {this.props.users.map(this.renderUser)}
 		    </div>
 		)
 	}
