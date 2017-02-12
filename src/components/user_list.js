@@ -7,14 +7,16 @@ import * as actions from '../actions/index';
 class UserList extends Component{
 	componentWillMount(){
 		this.props.fetchUsers();
+console.log('Users object!!!',this.props.users)
 	}
 
 	renderUser(user){
+
 	 return(
    	<div className='card card-block' key={user.name}>
    		<h4 className='card-title'>{user.name}</h4>
-   		<p className='card-text'>Cheese Co.</p>
-   		<a className='btn btn-primary'>Email</a>
+   		<p className='card-text'>{user.company.name}</p>
+   		<a className='btn btn-primary' href={user.website}>website</a>
    	</div>
 
 	 	)
